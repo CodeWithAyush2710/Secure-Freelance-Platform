@@ -1,4 +1,4 @@
-# Secure Freelance Platform
+# ContractChain
 
 A blockchain-based freelance platform with AI-powered contract review and dispute resolution.
 

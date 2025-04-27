@@ -31,8 +31,8 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center">
-              <BriefcaseBusiness className="h-8 w-8 text-blue-800" />
-              <span className="ml-2 text-xl font-bold text-blue-900">SecureFreelance</span>
+              <img src="/contractchain-logo.svg" alt="ContractChain Logo" className="h-8 w-8" />
+              <span className="ml-2 text-xl font-bold text-blue-900">ContractChain</span>
             </Link>
             <div className="hidden sm:ml-10 sm:flex sm:space-x-8">
               <Link
@@ -109,7 +109,7 @@ const Navbar: React.FC = () => {
                 </Button>
                 <Button
                   size="sm"
-                  onClick={() => navigate('/signup')}
+                  onClick={() => navigate('/register')}
                 >
                   Sign up
                 </Button>
@@ -200,7 +200,7 @@ const Navbar: React.FC = () => {
                 Log in
               </Button>
               <Button
-                onClick={() => navigate('/signup')}
+                onClick={() => navigate('/register')}
               >
                 Sign up
               </Button>

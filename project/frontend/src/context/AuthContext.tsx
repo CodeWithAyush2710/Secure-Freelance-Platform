@@ -5,7 +5,7 @@ interface AuthContextType {
   currentUser: User | null;
   isLoading: boolean;
   login: (email: string, password: string) => Promise<void>;
-  register: (email: string, password: string, name: string, role: 'freelancer' | 'client') => Promise<void>;
+  register: (email: string, password: string, name: string, role: 'freelancer' | 'client', walletAddress: string) => Promise<void>;
   logout: () => void;
   error: string | null;
 }
@@ -82,7 +82,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   // Mock register functionality
-  const register = async (email: string, password: string, name: string, role: 'freelancer' | 'client') => {
+  const register = async (email: string, password: string, name: string, role: 'freelancer' | 'client', walletAddress: string) => {
     setIsLoading(true);
     setError(null);
     
@@ -102,7 +102,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         email,
         role,
         joinedAt: new Date(),
-        rating: 0
+        rating: 0,
+        walletAddress
       };
       
       // In a real app, we would save to database here

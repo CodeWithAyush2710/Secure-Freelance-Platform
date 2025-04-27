@@ -17,6 +17,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess, onToggleForm }) 
   const [confirmPassword, setConfirmPassword] = useState('');
   const [role, setRole] = useState<'freelancer' | 'client'>('freelancer');
   const [formError, setFormError] = useState('');
+  const [walletAddress, setWalletAddress] = useState('');
   
   const { register, isLoading, error } = useAuth();
 
@@ -39,8 +40,13 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess, onToggleForm }) 
       return;
     }
 
+    if (!walletAddress) {
+      setFormError('Please enter your wallet address');
+      return;
+    }
+
     try {
-      await register(email, password, name, role);
+      await register(email, password, name, role, walletAddress);
       if (onSuccess) onSuccess();
     } catch (err) {
       // Error will be handled by the AuthContext
@@ -105,6 +111,17 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSuccess, onToggleForm }) 
           onChange={(e) => setConfirmPassword(e.target.value)}
           placeholder="••••••••"
           leftIcon={<Lock className="h-5 w-5" />}
+          required
+        />
+        
+        <Input
+          label="Wallet Address"
+          type="text"
+          id="walletAddress"
+          value={walletAddress}
+          onChange={(e) => setWalletAddress(e.target.value)}
+          placeholder="0x..."
+          leftIcon={<Briefcase className="h-5 w-5" />}
           required
         />
         
