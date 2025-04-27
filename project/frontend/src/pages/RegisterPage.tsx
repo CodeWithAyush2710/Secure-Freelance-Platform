@@ -7,13 +7,14 @@ const RegisterPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState<'freelancer' | 'client'>('freelancer');
+  const [walletAddress, setWalletAddress] = useState('');
   const { register, error } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await register(email, password, name, role);
+      await register(email, password, name, role, walletAddress);
       navigate('/dashboard');
     } catch (err) {
       console.error('Registration failed:', err);
@@ -82,6 +83,19 @@ const RegisterPage: React.FC = () => {
                 <option value="freelancer">Freelancer</option>
                 <option value="client">Client</option>
               </select>
+            </div>
+            <div>
+              <label htmlFor="walletAddress" className="sr-only">Wallet Address</label>
+              <input
+                id="walletAddress"
+                name="walletAddress"
+                type="text"
+                required
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                placeholder="Wallet Address"
+                value={walletAddress}
+                onChange={(e) => setWalletAddress(e.target.value)}
+              />
             </div>
           </div>
 

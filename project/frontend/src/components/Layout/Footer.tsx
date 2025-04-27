@@ -8,8 +8,8 @@ const Footer: React.FC = () => {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8 xl:col-span-1">
             <div className="flex items-center">
-              <BriefcaseBusiness className="h-8 w-8 text-blue-800" />
-              <span className="ml-2 text-xl font-bold text-blue-900">SecureFreelance</span>
+              <img src="/contractchain-logo.svg" alt="ContractChain Logo" className="h-8 w-8" />
+              <span className="ml-2 text-xl font-bold text-blue-900">ContractChain</span>
             </div>
             <p className="text-gray-500 text-base">
               Secure, transparent contracts and payments for freelancers and clients.
@@ -169,7 +169,7 @@ const Footer: React.FC = () => {
         </div>
         <div className="mt-12 border-t border-gray-200 pt-8">
           <p className="text-base text-gray-400 text-center">
-            &copy; 2025 SecureFreelance, Inc. All rights reserved.
+            &copy; 2025 ContractChain, Inc. All rights reserved.
           </p>
         </div>
       </div>
